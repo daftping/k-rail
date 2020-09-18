@@ -19,7 +19,7 @@ import (
 	"github.com/cruise-automation/k-rail/policies"
 	"github.com/cruise-automation/k-rail/resource"
 	log "github.com/sirupsen/logrus"
-	admissionv1beta1 "k8s.io/api/admission/v1beta1"
+	admissionv1 "k8s.io/api/admission/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/labels"
 	"k8s.io/apimachinery/pkg/util/intstr"
@@ -75,8 +75,8 @@ func (p PolicyInvalidPodDisruptionBudget) GetMatchingItems(namespace string, lab
 	}
 
 	// Check all types & versions, fail silently when a an api version does not exist
-	// extensionsv1beta1/deployments
-	if extsv1b1Deployments, err := p.client.ExtensionsV1beta1().Deployments(namespace).List(options); err == nil {
+	// extensionsv1/deployments
+	if extsv1b1Deployments, err := p.client.Extensionsv1().Deployments(namespace).List(options); err == nil {
 		for _, item := range extsv1b1Deployments.Items {
 			do := Item{
 				Name:     item.Name,
@@ -87,8 +87,8 @@ func (p PolicyInvalidPodDisruptionBudget) GetMatchingItems(namespace string, lab
 		}
 	}
 
-	// appsv1beta1/deployments
-	if appsv1b1Deployments, err := p.client.AppsV1beta1().Deployments(namespace).List(options); err == nil {
+	// appsv1/deployments
+	if appsv1b1Deployments, err := p.client.Appsv1().Deployments(namespace).List(options); err == nil {
 		for _, item := range appsv1b1Deployments.Items {
 			do := Item{
 				Name:     item.Name,
@@ -123,8 +123,8 @@ func (p PolicyInvalidPodDisruptionBudget) GetMatchingItems(namespace string, lab
 		}
 	}
 
-	// extensionsv1beta1/replicasets
-	if extsv1b1ReplicaSets, err := p.client.ExtensionsV1beta1().ReplicaSets(namespace).List(options); err == nil {
+	// extensionsv1/replicasets
+	if extsv1b1ReplicaSets, err := p.client.Extensionsv1().ReplicaSets(namespace).List(options); err == nil {
 		for _, item := range extsv1b1ReplicaSets.Items {
 			do := Item{
 				Name:     item.Name,
@@ -159,8 +159,8 @@ func (p PolicyInvalidPodDisruptionBudget) GetMatchingItems(namespace string, lab
 		}
 	}
 
-	// appsv1beta1/statefulsets
-	if appsv1b1StatefulSets, err := p.client.AppsV1beta1().StatefulSets(namespace).List(options); err == nil {
+	// appsv1/statefulsets
+	if appsv1b1StatefulSets, err := p.client.Appsv1().StatefulSets(namespace).List(options); err == nil {
 		for _, item := range appsv1b1StatefulSets.Items {
 			do := Item{
 				Name:     item.Name,
@@ -199,7 +199,7 @@ func (p PolicyInvalidPodDisruptionBudget) GetMatchingItems(namespace string, lab
 }
 
 // Validate poddisruptionbudget checks
-func (p PolicyInvalidPodDisruptionBudget) Validate(ctx context.Context, config policies.Config, ar *admissionv1beta1.AdmissionRequest) ([]policies.ResourceViolation, []policies.PatchOperation) {
+func (p PolicyInvalidPodDisruptionBudget) Validate(ctx context.Context, config policies.Config, ar *admissionv1.AdmissionRequest) ([]policies.ResourceViolation, []policies.PatchOperation) {
 
 	resourceViolations := []policies.ResourceViolation{}
 
