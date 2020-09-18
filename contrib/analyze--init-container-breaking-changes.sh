@@ -3,7 +3,7 @@
 # This script was used to analyze some existing workloads for point-in-time analysis and verification.
 # We're providing it in case it is useful. There may be later usage and documentation at some point in the future.
 
-# This was used to analyzing the backwards-incompatible policy changes introduced in https://github.com/cruise-automation/k-rail/pull/21
+# This was used to analyzing the backwards-incompatible policy changes introduced in https://github.com/daftping/k-rail/pull/21
 # and present in k-rail v1.0
 
 mkdir -p /tmp/pods

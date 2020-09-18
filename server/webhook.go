@@ -25,8 +25,8 @@ import (
 
 	"encoding/json"
 
-	"github.com/cruise-automation/k-rail/policies"
-	"github.com/cruise-automation/k-rail/resource"
+	"github.com/daftping/k-rail/policies"
+	"github.com/daftping/k-rail/resource"
 
 	"k8s.io/api/admission/v1beta1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"

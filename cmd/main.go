@@ -15,7 +15,7 @@ package main
 import (
 	"context"
 
-	"github.com/cruise-automation/k-rail/server"
+	"github.com/daftping/k-rail/server"
 )
 
 func main() {

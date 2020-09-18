@@ -1,4 +1,4 @@
-module github.com/cruise-automation/k-rail
+module github.com/daftping/k-rail
 
 go 1.12
 

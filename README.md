@@ -1,7 +1,7 @@
 ![k-rail](images/k-rail.png)
 
-[![CI Status](https://github.com/cruise-automation/k-rail/workflows/CI/badge.svg)](https://github.com/cruise-automation/k-rail/actions)
-[![Go Report Card](https://goreportcard.com/badge/github.com/cruise-automation/k-rail)](https://goreportcard.com/report/github.com/cruise-automation/k-rail)
+[![CI Status](https://github.com/daftping/k-rail/workflows/CI/badge.svg)](https://github.com/daftping/k-rail/actions)
+[![Go Report Card](https://goreportcard.com/badge/github.com/daftping/k-rail)](https://goreportcard.com/report/github.com/daftping/k-rail)
 [![Docker Hub Build Status](https://img.shields.io/docker/cloud/build/cruise/k-rail.svg)](https://hub.docker.com/r/cruise/k-rail/)
 
 k-rail is a workload policy enforcement tool for Kubernetes. It can help you secure a multi tenant cluster with minimal disruption and maximum velocity.
